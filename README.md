@@ -1,55 +1,78 @@
 # document-storage-project
 
-_Developed by:_
+_Desenvolvido por:_
 
 -   Enzo Bozzani Martins - R.A.: 24.122.020-1
 -   Igor Augusto Fiorini Rossi - R.A.: 24.122.023-5
 
-_Sections_:
+_Seções_:
 
--   [Prerequisites](#prerequisites)
--   [Installation](#installation)
--   [Run](#run)
+-   [Pré-requisitos](#pré-requisitos)
+-   [Instalação](#instalação)
+-   [Execução](#execução)
 
-### Prerequisites
+### Pré-requisitos
 
-This application uses [Python](https://www.python.org/) with [Poetry](https://python-poetry.org/) as the package manager.
+Essa aplicação usa [Python](https://www.python.org/) com [Poetry](https://python-poetry.org/) como gerenciador de dependências.
 
-Make sure you have the following installed on your machine:
+Tenha instalado em sua máquina:
 
--   [Python](https://www.python.org/). Version ^3.11
--   [Poetry](https://python-poetry.org/). This project was built using Poetry, but it's also possible to download its dependencies using pip.
+-   [Python](https://www.python.org/). Versão ^3.11
+-   [Poetry](https://python-poetry.org/). O projeto foi construído usando Poetry, mas é possível instalar as dependências usando pip (siga para a próxima seção).
 
-### Installation
+### Instalação
 
-Create a new virtual envinronment with your favorite virtual environment manager (pyenv-virtualenv, venv, etc)
+Crie um novo virtual env com seu gerenciador de ambientes virtuais favoritos (pyenv-virtualenv, venv, etc)
 
-Clone the repository:
+Clone o repositório:
 
 ```
 git clone git@github.com:EnzoBozzani/document-storage-project.git
 ```
 
-Make sure to activate your virtual environment on the project folder.
+Ative o virtualenv em sua pasta da aplicação.
 
-You can use MongoDB and PostgreSQL on your local machine or on remote server. Just set env variables with the connection URLs, using the variable names as specified on .env.example:
+-   Instale as dependências:
+
+    -   Usando pip (cheque se o pip está no seu virtualenv usando `pip --version`):
+
+        ```
+        pip install -r requirements.txt
+        ```
+
+    -   Usando poetry:
+        ```
+        poetry install
+        ```
+
+Você pode usar MongoDB e PostgreSQL em sua máquina local ou de maneira remota. Apenas configure as variáveis de ambiente com as URLs de conexão, assim como especificado no arquivo .env.example:
 
 ```
 POSTGRES_URL=""
 MONGO_URL=""
 ```
 
-### Run
+Para transferir dados de um banco PostgreSQL, é necessário tem um banco PostgreSQL. Siga o exemplo em [https://github.com/EnzoBozzani/projeto-banco-de-dados](https://github.com/EnzoBozzani/projeto-banco-de-dados), o qual contém migrations, seeder e queries (em SQL).
 
-To run the application:
+Feito isso, siga para a próxima seção.
+
+### Execução
+
+Para executar a transferência de dados:
 
 ```
-python3 app.py
+python3 transfer-data.py
 ```
 
-This will start the data transfer. Logs are outputted on terminal
+Os logs são exibidos no terminal.
+
+Execute algumas queries com:
+
+```
+python3 queries.py
+```
 
 TASKS:
 
--   [ ] Reuse seeders to populate Postgres
--   [ ] Documentation
+-   Descrição das collections
+-   Queries
