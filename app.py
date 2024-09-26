@@ -15,6 +15,7 @@ mongo_conn = MongoClient(os.environ['MONGO_URL'])
 mongo_db = mongo_conn.projeto_db
 
 def show_tables() -> list[str]:
+    print("Fetching table names...")
     with postgres_conn.cursor() as db:
         db.execute("SHOW TABLES;")
         res = db.fetchall()
@@ -22,6 +23,7 @@ def show_tables() -> list[str]:
         return [table[1] for table in res]
 
 def select_all(table_name: str) -> list[Any]:
+    print(f"Selecting table '{table_name}' records ...")
     with postgres_conn.cursor() as db:
         db.execute(f"SELECT * FROM {table_name};")
         res = db.fetchall()
@@ -29,6 +31,7 @@ def select_all(table_name: str) -> list[Any]:
         return res
     
 def select_columns(table_name: str) -> list[Any]:
+    print(f"Selecting table '{table_name}' columns names...")
     with postgres_conn.cursor() as db:
         db.execute(f"SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='{table_name}';")
         res = db.fetchall()
@@ -36,15 +39,12 @@ def select_columns(table_name: str) -> list[Any]:
         return [table[3] for table in res]
     
 def transfer_data():
-    print("Fetching table names...")
     tables = show_tables()
 
     print("\n-----------------------------------------------------------------------------\n")
 
     for table in tables:
-        print(f"Selecting table {table} columns names...")
         cols = select_columns(table)
-        print(f"Selecting table {table} records ...")
         rows = select_all(table)
 
         records = []
@@ -60,12 +60,12 @@ def transfer_data():
             records.append(dict(zip(cols, formatted)))
 
         try:
-            print(f"Creating {table} collection in MongoDB")
+            print(f"Creating '{table}' collection in MongoDB")
             mongo_db.create_collection(table)
         except:
             pass
         
-        print(f"Inserting values in {table} collection")
+        print(f"Inserting values in '{table}' collection")
         mongo_db[table].insert_many(records)
 
         print("\n-----------------------------------------------------------------------------\n")
@@ -81,8 +81,8 @@ def drop_all_collections():
     print("Deleting all collections...")
     for collection in mongo_db.list_collection_names():
         mongo_db[collection].drop()
-        print(f"Deleted {collection} collection successfully")
-        
+        print(f"Deleted '{collection}' collection successfully")
+
 
 if __name__ == '__main__':
     drop_all_collections()
