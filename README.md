@@ -58,21 +58,20 @@ Feito isso, siga para a próxima seção.
 
 ### Execução
 
-Para executar a transferência de dados:
+Para executar a aplicação:
 
 ```
-python3 transfer-data.py
+python3 app.py
 ```
 
-Os logs são exibidos no terminal.
+Os logs (que informam o andamento) serão exibidos no terminal. Ao fim da execução, será gerada uma pasta 'output' com os resultados das seguintes queries (que serão feitas nas coleções do MongoDB):
 
-Execute algumas queries com:
-
-```
-python3 queries.py
-```
+1. histórico escolar de qualquer aluno, retornando o código e nome da disciplina, semestre e ano que a disciplina foi cursada e nota final
+2. histórico de disciplinas ministradas por qualquer professor, com semestre e ano
+3. listar alunos que já se formaram (foram aprovados em todos os cursos de uma matriz curricular) em um determinado semestre de um ano
+4. listar todos os professores que são chefes de departamento, junto com o nome do departamento
+5. saber quais alunos formaram um grupo de TCC e qual professor foi o orientador
 
 TASKS:
 
 -   Descrição das collections
--   Queries

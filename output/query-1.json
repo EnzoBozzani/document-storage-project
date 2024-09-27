@@ -1,0 +1,62 @@
+[
+	{
+		"_id": "66f6ec1abf9b3993fb0e6349",
+		"student_id": "100000001",
+		"subj_id": "CA2211",
+		"semester": 2,
+		"year": 2018,
+		"grade": 5.5,
+		"subjroom": "K0-08",
+		"subj_title": "Geometria Analítica"
+	},
+	{
+		"_id": "66f6ec1abf9b3993fb0e634a",
+		"student_id": "100000001",
+		"subj_id": "CA4312",
+		"semester": 2,
+		"year": 2018,
+		"grade": 7.6,
+		"subjroom": "I1-01",
+		"subj_title": "Álgebra Linear"
+	},
+	{
+		"_id": "66f6ec1abf9b3993fb0e634b",
+		"student_id": "100000001",
+		"subj_id": "CA4322",
+		"semester": 2,
+		"year": 2018,
+		"grade": 5.0,
+		"subjroom": "J0-02",
+		"subj_title": "Cálculo Numérico"
+	},
+	{
+		"_id": "66f6ec1abf9b3993fb0e634c",
+		"student_id": "100000001",
+		"subj_id": "CC7711",
+		"semester": 1,
+		"year": 2018,
+		"grade": 10.0,
+		"subjroom": "K0-08",
+		"subj_title": "Inteligência Artificial e Robótica"
+	},
+	{
+		"_id": "66f6ec1abf9b3993fb0e634d",
+		"student_id": "100000001",
+		"subj_id": "CCD110",
+		"semester": 1,
+		"year": 2018,
+		"grade": 6.0,
+		"subjroom": "K3-02",
+		"subj_title": "Banco de Dados"
+	},
+	{
+		"_id": "66f6ec1abf9b3993fb0e634e",
+		"student_id": "100000001",
+		"subj_id": "CCP130",
+		"semester": 1,
+		"year": 2018,
+		"grade": 8.0,
+		"subjroom": "K2-01",
+		"subj_title": "Desenvolvimento de Algoritmos"
+	}
+]

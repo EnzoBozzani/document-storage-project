@@ -48,7 +48,7 @@ def query_student_academic_record():
         result[i].pop("subject_info")
     
     with open('./output/query-1.json', 'w') as f:
-        json.dump(result, f)
+        json.dump(result, f, ensure_ascii=False)
 
 
 def query_professor_academic_record():
@@ -68,7 +68,8 @@ def query_professor_academic_record():
         result[i]["_id"] = str(row["_id"])
 
     with open('./output/query-2.json', 'w') as f:
-        json.dump(result, f)
+        json.dump(result, f, ensure_ascii=False)
+
 
 def query_graduated_students():
     """
@@ -88,13 +89,100 @@ def query_graduated_students():
         result[i]["_id"] = str(row["_id"])
 
     with open('./output/query-3.json', 'w') as f:
-        json.dump(result, f)
+        json.dump(result, f, ensure_ascii=False)
 
-if __name__ == '__main__':
-    print("Outputs estarão na pasta ./output")
-    if not os.path.exists('./output'):
-        os.mkdir('./output')
-    query_student_academic_record()
-    query_professor_academic_record()
-    query_graduated_students()
+
+def query_chiefs_of_departments():
+    """
+    4. listar todos os professores que são chefes de departamento, junto com o nome do departamento
+    Buscando os professores que são chefes de departamento
+    """
+    print("Buscando os professores que são chefes de departamento")
+
+    pipeline = [
+        {"$lookup": {
+            "from": "professor",         
+            "localField": "boss_id",
+            "foreignField": "id", 
+            "as": "professor_info"  
+        }},
+        {"$unwind": "$professor_info"}, 
+        {"$project": {
+            "professor_info": 1
+        }}
+    ]
+
+    result = mongo_db["department"].aggregate(pipeline).to_list()
+
+    for i, row in enumerate(result):
+        professor_info = row["professor_info"]
+        result[i] = professor_info
+        result[i]["_id"] = str(result[i]["_id"])
+
+    with open('./output/query-4.json', 'w') as f:
+        json.dump(result, f, ensure_ascii=False)
+
+
+def query_tcc_group():
+    """
+    5. saber quais alunos formaram um grupo de TCC e qual professor foi o orientador
+    Buscando os alunos que formaram o grupo de TCC de ID CC1111111
+    """
+    print("Buscando os alunos que formaram o grupo de TCC de ID CC1111111")
+
+    pipeline = [
+        {
+            '$match': {
+                'group_id': 'CC1111111'
+            }
+        },
+        {
+            '$lookup': {
+                'from': 'tcc_group',
+                'localField': 'group_id',
+                'foreignField': 'id',
+                'as': 't'
+            }
+        },
+        {
+            '$unwind': '$t'
+        },
+        {
+            '$lookup': {
+                'from': 'professor', 
+                'localField': 't.professor_id', 
+                'foreignField': 'id',  
+                'as': 'p' 
+            }
+        },
+        {
+            '$unwind': '$p'
+        },
+        {
+            '$project': {  
+                'id': 1,
+                'name': 1,
+                'course_id': 1,
+                'group_id': 1,
+                'prof_name': '$p.name'
+            }
+        }
+    ]
+
+    result = mongo_db["student"].aggregate(pipeline).to_list()
+
+    records = {
+        "group_id": result[0]["group_id"],
+        "prof_name": result[0]["prof_name"], 
+        "students": []
+    }
+
+    for i, row in enumerate(result):
+        result[i]["_id"] = str(row["_id"])
+        result[i].pop("group_id")
+        result[i].pop("prof_name")
+        records["students"].append(result[i])
+
+    with open('./output/query-5.json', 'w') as f:
+        json.dump(records, f, ensure_ascii=False)
 
