@@ -1,11 +1,1 @@
-[
-	{ "_id": "66f6ec13bf9b3993fb0e62f1", "course_id": "CC", "student_id": "100000001", "semester": 2, "year": 2018 },
-	{ "_id": "66f6ec13bf9b3993fb0e62f2", "course_id": "CC", "student_id": "100000002", "semester": 2, "year": 2018 },
-	{ "_id": "66f6ec13bf9b3993fb0e62f3", "course_id": "CC", "student_id": "100000003", "semester": 2, "year": 2018 },
-	{ "_id": "66f6ec13bf9b3993fb0e62f4", "course_id": "EC", "student_id": "100000004", "semester": 2, "year": 2018 },
-	{ "_id": "66f6ec13bf9b3993fb0e62f5", "course_id": "EC", "student_id": "100000005", "semester": 2, "year": 2018 },
-	{ "_id": "66f6ec13bf9b3993fb0e62f6", "course_id": "EC", "student_id": "100000006", "semester": 2, "year": 2018 },
-	{ "_id": "66f6ec13bf9b3993fb0e62f7", "course_id": "EP", "student_id": "100000007", "semester": 2, "year": 2018 },
-	{ "_id": "66f6ec13bf9b3993fb0e62f8", "course_id": "EP", "student_id": "100000008", "semester": 2, "year": 2018 },
-	{ "_id": "66f6ec13bf9b3993fb0e62f9", "course_id": "EP", "student_id": "100000009", "semester": 2, "year": 2018 }
-]
+[{"_id": "66feef92de8e5abbcde8cd3c", "course_id": "CC", "student_id": "100000001", "semester": 2, "year": 2018}, {"_id": "66feef92de8e5abbcde8cd3d", "course_id": "CC", "student_id": "100000002", "semester": 2, "year": 2018}, {"_id": "66feef92de8e5abbcde8cd3e", "course_id": "CC", "student_id": "100000003", "semester": 2, "year": 2018}, {"_id": "66feef92de8e5abbcde8cd3f", "course_id": "EC", "student_id": "100000004", "semester": 2, "year": 2018}, {"_id": "66feef92de8e5abbcde8cd40", "course_id": "EC", "student_id": "100000005", "semester": 2, "year": 2018}, {"_id": "66feef92de8e5abbcde8cd41", "course_id": "EC", "student_id": "100000006", "semester": 2, "year": 2018}, {"_id": "66feef92de8e5abbcde8cd42", "course_id": "EP", "student_id": "100000007", "semester": 2, "year": 2018}, {"_id": "66feef92de8e5abbcde8cd43", "course_id": "EP", "student_id": "100000008", "semester": 2, "year": 2018}, {"_id": "66feef92de8e5abbcde8cd44", "course_id": "EP", "student_id": "100000009", "semester": 2, "year": 2018}]

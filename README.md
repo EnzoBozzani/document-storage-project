@@ -7,9 +7,126 @@ _Desenvolvido por:_
 
 _Seções_:
 
+-   [Collections](#collections)
 -   [Pré-requisitos](#pré-requisitos)
 -   [Instalação](#instalação)
 -   [Execução](#execução)
+
+### Collections
+
+-   course
+
+```
+{
+    _id: ObjectId(),
+    id: String,
+    title: String
+}
+```
+
+-   department
+
+```
+{
+    _id: ObjectId(),
+    dept_name: String,
+    budget: Double,
+    boss_id: String
+}
+```
+
+-   graduate
+
+```
+{
+    _id: ObjectId(),
+    course_id: String,
+    student_id: String,
+    year: Integer,
+    semester: Integer
+}
+```
+
+-   professor
+
+```
+{
+    _id: ObjectId(),
+    id: String,
+    name: String,
+    dept_name: String,
+    salary: Double
+}
+```
+
+-   req
+
+```
+{
+    _id: ObjectId(),
+    course_id: String,
+    subj_id: String
+}
+```
+
+-   student
+
+```
+{
+    _id: ObjectId(),
+    id: String,
+    name: String,
+    course_id: String,
+    group_id: String
+}
+```
+
+-   subj
+
+```
+{
+    _id: ObjectId(),
+    id: String,
+    title: String,
+    dept_name: String
+}
+```
+
+-   takes
+
+```
+{
+    _id: ObjectId(),
+    student_id: String,
+    subj_id: String,
+    year: Integer,
+    semester: Integer,
+    grade: Double,
+    subjroom: String
+}
+```
+
+-   tcc_group
+
+```
+{
+    _id: ObjectId(),
+    id: String,
+    professor_id: String
+}
+```
+
+-   teaches
+
+```
+{
+    _id: ObjectId(),
+    subj_id: String,
+    professor_id: String,
+    year: Integer,
+    semester: Integer
+}
+```
 
 ### Pré-requisitos
 
