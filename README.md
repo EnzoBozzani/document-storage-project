@@ -2,6 +2,8 @@
 
 _Desenvolvido por:_
 
+-   Adriel Henrique Foppa Lima - R.A.: 24.122.096-1
+-   Alan Mantelatto Mlatisuma - R.A.: 24.122.015-1
 -   Enzo Bozzani Martins - R.A.: 24.122.020-1
 -   Igor Augusto Fiorini Rossi - R.A.: 24.122.023-5
 
