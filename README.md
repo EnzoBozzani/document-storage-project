@@ -180,7 +180,7 @@ Feito isso, siga para a próxima seção.
 Para executar a aplicação:
 
 ```
-python3 app.py
+python app.py
 ```
 
 Os logs (que informam o andamento) serão exibidos no terminal. Ao fim da execução, será gerada uma pasta 'output' com os resultados das seguintes queries (que serão feitas nas coleções do MongoDB):
@@ -190,7 +190,3 @@ Os logs (que informam o andamento) serão exibidos no terminal. Ao fim da execu�
 3. listar alunos que já se formaram (foram aprovados em todos os cursos de uma matriz curricular) em um determinado semestre de um ano
 4. listar todos os professores que são chefes de departamento, junto com o nome do departamento
 5. saber quais alunos formaram um grupo de TCC e qual professor foi o orientador
-
-TASKS:
-
--   Descrição das collections
